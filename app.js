@@ -36,15 +36,6 @@ app.post("/search", async (req, res) => {
   url1 = `https://real-time-amazon-data.p.rapidapi.com/search?query=${ser1}&page=1&country=IN&sort_by=RELEVANCE&product_condition=ALL&is_prime=false&deals_and_discounts=NONE`;
 
 
-
-
-
-
-
-
-
-
-
   url4 = `https://ebay-search-result.p.rapidapi.com/search/${ser1}`;
 
 
@@ -55,22 +46,8 @@ app.post("/search", async (req, res) => {
   const option1 = {
     method: 'GET',
     headers: {
-      'x-rapidapi-key': '1c3a277bfcmsh609a00c8f0ea491p1e64bfjsn190b9d17acdb',
+      'x-rapidapi-key': 'bc0d085adfmsh0516debfe5dbc93p15d38ejsn9aee11dd86e6',
       'x-rapidapi-host': 'real-time-amazon-data.p.rapidapi.com'
-    }
-  };
-  const option2 = {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-key': '1c3a277bfcmsh609a00c8f0ea491p1e64bfjsn190b9d17acdb',
-      'x-rapidapi-host': 'walmart2.p.rapidapi.com'
-    }
-  };
-  const option3 = {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-key': '1c3a277bfcmsh609a00c8f0ea491p1e64bfjsn190b9d17acdb',
-      'x-rapidapi-host': 'aliexpress-datahub.p.rapidapi.com'
     }
   };
 
@@ -87,7 +64,7 @@ app.post("/search", async (req, res) => {
   try {
     const response = await fetch(url1, option1);
     const result = await response.json();
-    // console.log(result);
+   
     for (let produc of result.data.products) {
       let dis = (parseFloat(produc.product_original_price) - parseFloat(produc.product_price)) / produc.product_original_price * 100;
       let discount = '${dis}';
@@ -130,11 +107,11 @@ app.post("/search", async (req, res) => {
       };
       arr.push(data);
     }
-    console.log(arr);
 
   } catch (error) {
     console.error("error", error);
   }
+
   arr.sort((a, b) =>
 
     a.price - b.price
@@ -144,12 +121,12 @@ app.post("/search", async (req, res) => {
   res.redirect("home");
 });
 
+
 app.get('/home', (req, res) => {
   console.log(url1);
+  console.log(arr)
   res.render("home", { products: arr });
 });
-
-
 
 
 

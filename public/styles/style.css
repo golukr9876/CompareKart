@@ -312,7 +312,7 @@ footer {
         height: 70%;
         position:absolute;
         z-index: 0;
-        background-image: url("assets/image.jpg");
+        background-image: url("/image/image.jpg");
         background-position: center top;
         background-repeat: no-repeat;
         background-size: cover;
