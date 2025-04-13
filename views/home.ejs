@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="search.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Raleway:wght@500;700&display=swap"
+        rel="stylesheet">
+    
+    <meta name="description"
+        content="Compare prices of products from Amazon, Flipkart, and more. Save time and money by finding the best deals instantly.">
+    <meta name="keywords"
+        content="price comparison, ecommerce, amazon, flipkart, shopping, deals, online shopping, product search">
+    <meta name="author" content="teachenabled">
+
+    <!-- Open Graph (for social sharing) -->
+    <meta property="og:title" content="Price Comparison App">
+    <meta property="og:description"
+        content="Easily compare product prices from multiple ecommerce websites in one place.">
+
+        <title>Product</title>
+        <link rel="stylesheet" href="/styles/BodyDiv.css">
+
+</head>
+
+<body>
+   
+    <!-- navbar and header -->
+    <header>
+        <div id="nav-bar">
+            <div class="logo">
+                <img src="/image/logo2.png" alt="">
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="search products" id="search">
+                <div class="search-icon">
+                    <i class="ri-search-line"></i>
+                </div>
+            </div>
+            <div id="contact-us">
+                <i class="ri-contacts-fill"></i>
+                contactUs
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <div class="search-page">
+            <!-- <div class="search-background"></div> -->
+            <div class="search-product">
+
+                <h1>Product List</h1>
+    
+    <div class="amazone">
+        <% products.forEach((product, index) => { %>
+            <div class="itembox <%= index >= 8 ? 'hidden' : '' %>">
+                <% 
+                const rating = product.rate; // Example rating value
+
+            //     const percent = () => {
+            //     if (product.origprice > 0) {
+            //         const percentage = ((product.origprice - product.price) / product.origprice) * 100;
+            //         return percentage.toFixed(0);
+            //     }
+            //          return 0; // Return 0% if the original price is invalid
+            //   } ;
+            const percent = () => {
+    const origPrice = parseFloat(product.origprice);
+    const price = parseFloat(product.price);
+    if (origPrice > 0) {
+        const percentage = ((origPrice - price) / origPrice) * 100;
+        return percentage.toFixed(0);
+    }
+    return 0; // Return 0% if the original price is invalid
+};
+                
+                const renderStars = () => {
+                    const totalStars = 5;
+                    let stars = '';
+
+                    for (let i = 1; i <= totalStars; i++) {
+                        if (i <= Math.floor(rating)) {
+                            // Full star
+                            stars += '<span class="star-icon full">★</span>';
+                        } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
+                            // Half star
+                            stars += '<span class="star-icon half">★</span>';
+                        } else {
+                            // Empty star
+                            stars += '<span class="star-icon empty">★</span>';
+                        }
+                    }
+
+                    return stars;
+                };
+                %>
+                <div class='logo'>
+                    <img
+                        src="<%=product.logo%>"
+                        alt="Brand Logo"
+                    />
+                </div>
+                <div class='image-container'>
+                    <img
+                        src="<%= product.img %>"
+                        class='image'
+                        alt="Product"
+                    />
+                </div>
+                <section class="pname">
+                    <span class="ppname" ><%=product.title %></span>
+                </section>
+                <section class="star">
+                    <div class="rating">
+                        <%- renderStars() %>
+                    </div>
+                    <div class="review">234,564 Reviews</div>
+                </section>
+                <section class='rate-section'>
+                    <div class='rate'>
+                        <span class='mrp'><%= product.origprice %></span>
+                        
+                        <span class='discounted-price'>Rs. <%= product.price %></span>
+                       
+                    </div>
+                    <div class='time'>
+                        <span class='delivery'>Free delivery</span> <span class='bold-text'><%=product.delivery%></span>
+                    </div>
+                </section>
+                <div class='link'>
+                    <a href="<%= product.link %> " target="_blank" >View Product</a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <div class="view-more-container">
+        <button id="view-more-btn">View More</button>
+    </div>
+    
+    
+
+
+
+
+            </div>
+
+
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <!-- Section 1: Info -->
+            <div class="footer-section">
+              <h3>CompareKart</h3>
+              <p>Your one-stop destination to compare prices, features, and deals across Amazon, Flipkart, AliExpress, and Meesho.</p>
+              <ul class="footer-links">
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms & Conditions</a></li>
+              </ul>
+            </div>
+        
+            <!-- Section 2: Contact Form -->
+            <div class="footer-section">
+              <h4>Contact Us</h4>
+              <form class="contact-form" action="/submit-contact" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="tel" name="phone" placeholder="Your Phone Number" required />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        
+          <p class="footer-disclaimer">
+            Disclaimer: CompareKart is a third-party platform that fetches data from trusted e-commerce websites via APIs. Prices and availability may vary and are subject to change without notice.
+          </p>
+        
+          <div class="footer-socials">
+            <a href="#"><i class="ri-facebook-box-fill"></i></a>
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-instagram-fill"></i></a>
+          </div>
+        
+          <p class="footer-bottom">© 2025 CompareKart. All rights reserved.</p>
+       </footer>
+
+
+       <script src="/javascripts/home.js"></script>
+       <script src="/javascripts/box.js"></script>
+</body>
+</html>

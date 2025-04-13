@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/BodyDiv.css">
+</head>
+<body>
+    <%
+    const rating = 4.5; // Example rating value
+
+    const renderStars = () => {
+        const totalStars = 5;
+        let stars = '';
+
+        for (let i = 1; i <= totalStars; i++) {
+            if (i <= Math.floor(rating)) {
+                // Full star
+                stars += '<span class="star-icon full">★</span>';
+            } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
+                // Half star
+                stars += '<span class="star-icon half">★</span>';
+            } else {
+                // Empty star
+                stars += '<span class="star-icon empty">★</span>';
+            }
+        }
+
+        return stars;
+    };
+%>
+
+
+        <div class='itembox'>
+            <div class='logo'>
+                <img
+                    src="https://t3.ftcdn.net/jpg/04/59/83/98/360_F_459839852_CcutU8xMpaEawDM7s9xsnYyxEI1rBtSs.jpg"
+                    alt="Brand Logo"
+                />
+            </div>
+            <div class='image-container'>
+                <img
+                    src="https://m.media-amazon.com/images/I/71f3BmjCwtL.AC_UY1000.jpg"
+                    class='image'
+                    alt="Product"
+                />
+            </div>
+            <section class="pname" > <span  >product name </span>
+            
+            </section>
+            <section class="star">
+                <div class="rating">
+                    <%- renderStars() %>
+                </div>
+                <div class="review">234,564 Reviews</div>
+            </section>
+            <section class='rate-section'>
+                <div class='rate'>
+                    <span class='mrp'>₹2,000</span>
+                    <span class='discounted-price'>₹1,500</span>
+                    <span class='discount'>(25% OFF)</span>
+                </div>
+                <div class='time'>
+                    <span class='delivery'>Free delivery</span> <span class='bold-text'>Wed, 16 Apr</span>
+                </div>
+            </section>
+            <div class='link'>
+                <a href="">click </a>
+            </div>
+        </div>
+
+
+    
+</body>
+</html>
+
+
+    

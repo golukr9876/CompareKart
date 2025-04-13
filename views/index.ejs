@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compareKart</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Raleway:wght@500;700&display=swap" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <meta name="description" content="Compare prices of products from Amazon, Flipkart, and more. Save time and money by finding the best deals instantly.">
+<meta name="keywords" content="price comparison, ecommerce, amazon, flipkart, shopping, deals, online shopping, product search">
+<meta name="author" content="teachenabled">
+
+<!-- Open Graph (for social sharing) -->
+<meta property="og:title" content="Price Comparison App">
+<meta property="og:description" content="Easily compare product prices from multiple ecommerce websites in one place.">
+<!-- <meta property="og:image" content="URL_TO_YOUR_SHARE_IMAGE"> -->
+<!-- <meta property="og:url" content="https://yourwebsite.com"> -->
+<!-- <meta property="og:type" content="website"> -->
+
+
+</head>
+<body>
+
+    <!-- navbar and header -->
+   <header>
+        <div id="nav-bar">
+            <div class="logo">
+                <img src="/image/logo2.png" alt="">
+            </div>
+            <form action="/search" method="post">
+            <div class="search-box">
+                <input type="text" placeholder="search products" id="search" name="search" required>
+                <div class="search-icon">
+                     <button type="submit" id="search-p" ><i class="ri-search-line"></i></button>
+                </div>
+                </form>
+            </div>
+            <div id="contact-us">
+                <i class="ri-contacts-fill"></i>
+                contactUs
+            </div>
+        </div>
+   </header>
+
+   <!-- hero section -->
+   <div id="hero">
+    <div class="background-home"></div>
+        <div id="left">
+           <div id="text1">
+                <h1>CompareKart</h1>
+                <p>🛍️ Shopping online is easy, but comparing prices across platforms is hard.</p>
+                <br>                
+                <p>compare prices from multiple retailers</p>
+           </div>
+           <button id="search-2" >Search Products</button>
+        </div>
+        <div id="right">
+            <img src="/image/image.jpg" alt="">
+        </div>
+   </div>
+
+   <div id="product-section">
+    <div class="box">
+        <div class="box-content">
+            <h2>Clothes</h2>
+                 <img src="/image/box1_image.jpg" alt="">
+                 <p>See more</p>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-content">
+            <h2>Electronics</h2>
+           
+                 <img src="/image/box4_image.jpg" alt="">
+             
+                 <p>See more</p>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-content">
+            <h2>Sports, Fitness & Outdoors</h2>
+             
+                 <img src="/image/fitness.png" alt="">
+            
+             <p>See more</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-content">
+            <h2>Footwear & handbags</h2>
+           
+                 <img src="/image/footwear.png" alt="">
+            
+                 <p>See more</p>
+        </div>
+    </div>
+    
+    <div class="box">
+        <div class="box-content">
+            <h2>Beauty</h2>
+            
+                 <img src="/image/box5_image.jpg" alt="">
+             
+                 <p>See more</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-content">
+            <h2>Pets & Care</h2>
+            
+                 <img src="/image/pets.jpg" alt="">
+             
+                 <p>See more</p>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-content">
+            <h2>Health Care</h2>
+            
+                 <img src="/image/health.jpg" alt="">
+            
+                 <p>See more</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-content">
+            <h2>snacks and beverages</h2>
+           
+                 <img src="https://snackboxhampers.com.au/wp-content/uploads/2022/07/Veg-Out-Vegan-Snack-Box-Gift-Hamper-Medium.jpg" alt="">
+            
+                 <p>See more</p>
+        </div>
+    </div>
+    
+    <div class="box">
+        <div class="box-content">
+            <h2>Toys</h2>
+           
+                 <img src="/image/box7_image.jpg" alt="">
+            
+                 <p>See more</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-content">
+            <h2>Home & Kitchen</h2>
+           
+                 <img src="https://th.bing.com/th/id/OIP.lSAnMvdQ2WHmZaLe5mn3dgHaLG?w=683&h=1024&rs=1&pid=ImgDetMain" alt="">
+          
+                 <p>See more</p>
+        </div>
+    </div>
+
+</div>
+
+   <footer>
+    <div class="footer-container">
+        <!-- Section 1: Info -->
+        <div class="footer-section">
+          <h3>CompareKart</h3>
+          <p>Your one-stop destination to compare prices, features, and deals across Amazon, Flipkart, AliExpress, and Meesho.</p>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+    
+        <!-- Section 2: Contact Form -->
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <form class="contact-form" action="/submit-contact" method="POST">
+            <input type="text" name="name" placeholder="Your Name" id="name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <input type="tel" name="phone" placeholder="Your Phone Number" required />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    
+      <p class="footer-disclaimer">
+        Disclaimer: CompareKart is a third-party platform that fetches data from trusted e-commerce websites via APIs. Prices and availability may vary and are subject to change without notice.
+      </p>
+    
+      <div class="footer-socials">
+        <a href="#"><i class="ri-facebook-box-fill"></i></a>
+        <a href="#"><i class="ri-twitter-x-line"></i></a>
+        <a href="#"><i class="ri-instagram-fill"></i></a>
+      </div>
+    
+      <p class="footer-bottom">© 2025 CompareKart. All rights reserved.</p>
+   </footer>
+   <script src="/javascripts/index.js" ></script>
+</body>
+
+</html>
